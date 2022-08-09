@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/tipanazar/webSockets-light--backend/issues"
   },
-  "homepage": "https://github.com/tipanazar/webSockets-light--backend#readme"
+  "homepage": "https://github.com/tipanazar/webSockets-light--backend#readme",
+  "dependencies": {
+    "ws": "^8.8.1"
+  }
 }

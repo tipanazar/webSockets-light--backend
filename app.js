@@ -1,4 +1,8 @@
 const express = require("express");
+const http = require("http");
+const ws = require("ws");
+const path = require("path");
+
 const app = express();
 app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
@@ -21,7 +25,7 @@ wss.on("connection", (ws) => {
   };
 });
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 httpServer.listen(port, () => {
   console.log("Server started. Port: ", port);
 });

@@ -3,16 +3,16 @@ const ws = new require("ws");
 
 const PORT = process.env.PORT || 5000;
 
-const server = express()
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+// const server = express()
+//   .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
-const wsServer = new ws.Server({server});
+const wsServer = new ws.Server({port: PORT});
 
 let users = [];
 wsServer.on("connection", (newUser) => {
   console.log("Connected to WS server");
   users.push(newUser);
-  
+
   setTimeout(() => {
     newUser.send("Вы в чате");
   }, 1000);

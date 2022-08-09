@@ -16,6 +16,7 @@ const wsServer = new ws.Server({ port: 5000 });
 // const wsServer = new ws.Server({ server: httpServer });
 
 wsServer.on("connection", (newUser) => {
+    console.log('Connected')
   users.push(newUser);
   setTimeout(() => {
     newUser.send("Вы в чате");

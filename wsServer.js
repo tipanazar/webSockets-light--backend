@@ -1,19 +1,19 @@
-// const express = require("express");
-// const http = require("http");
-// const path = require("path");
+const express = require("express");
+const http = require("http");
+const path = require("path");
 const ws = new require("ws");
 
-// const app = express();
+const app = express();
 let users = [];
 
-// app.use(express.static(path.join(__dirname, "./public")));
-// app.get("/", (req, res) => {
-//   res.sendFile(path.join(__dirname, "index.html"));
-// });
+app.use(express.static(path.join(__dirname, "./public")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-// const httpServer = http.createServer(app);
-const wsServer = new ws.Server({ port: 5000 });
-// const wsServer = new ws.Server({ server: httpServer });
+const httpServer = http.createServer(app);
+// const wsServer = new ws.Server({ port: 5000 });
+const wsServer = new ws.Server({ server: httpServer });
 
 wsServer.on("connection", (newUser) => {
     console.log('Connected')
@@ -39,6 +39,6 @@ wsServer.on("connection", (newUser) => {
   });
 });
 
-// httpServer.listen(5000, () => {
-//   console.log("Server started. Port: ", 5000);
-// });
+httpServer.listen(5000, () => {
+  console.log("Server started. Port: ", 5000);
+});

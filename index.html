@@ -2,34 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Client</title>
+    <title>WebSockets</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="shortcut icon" href="./webSockets.png" type="image/png" />
   </head>
 
   <body>
-    <h3>Click on the window.</h3>
-    <div id="output" style="font-family: Arial; font-size: 14px"></div>
-
-    <script>
-      const output = document.getElementById("output");
-      output.innerHTML = "Wait for connection...";
-      // const ws = new WebSocket("ws://localhost:3000");
-      const ws = new WebSocket("wss://mouse-click-js.herokuapp.com");
-      ws.onopen = () => {
-        output.innerHTML = "Connected to the server";
-        window.onclick = (event) => {
-          const x = event.clientX;
-          const y = event.clientY;
-          console.log(x + ", " + y);
-          ws.send(JSON.stringify({ x: x, y: y }));
-        };
-
-        ws.onmessage = (event) => {
-          console.log(event.data);
-          const msg = JSON.parse(event.data);
-          output.innerHTML = `Answer from server: x = ${msg.x}, y = ${msg.y}`;
-        };
-      };
-    </script>
+    <div class="mainBlock">
+      <form class="userNameForm">
+        <input
+          class="userNameInput"
+          type="text"
+          name="userName"
+          placeholder="Enter your name"
+          required
+        />
+        <button class="sendUserNameBtn" type="submit">Go!</button>
+      </form>
+      <div class="chatBlock"></div>
+      <form class="messageForm">
+        <input
+          class="messageInput"
+          type="text"
+          name="userMessage"
+          placeholder="Type something..."
+          type="text"
+          required
+        />
+        <button class="sendMessageBtn" type="submit">Send</button>
+      </form>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>

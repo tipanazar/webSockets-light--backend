@@ -6,9 +6,9 @@ const ws = new require("ws");
 const app = express();
 let users = [];
 
-app.use(express.static(path.join(__dirname, "./public")));
+app.use(express.static(__dirname)); // ./public
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(__dirname); // "index.html"
 });
 
 const httpServer = http.createServer(app);
@@ -16,7 +16,7 @@ const httpServer = http.createServer(app);
 const wsServer = new ws.Server({ server: httpServer });
 
 wsServer.on("connection", (newUser) => {
-    console.log('Connected')
+  console.log("Connected");
   users.push(newUser);
   setTimeout(() => {
     newUser.send("Вы в чате");
@@ -39,7 +39,7 @@ wsServer.on("connection", (newUser) => {
   });
 });
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 httpServer.listen(port, () => {
   console.log("Server started. Port: ", port);
 });

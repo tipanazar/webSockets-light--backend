@@ -6,7 +6,7 @@ const ws = new require("ws");
 const app = express();
 let users = [];
 
-app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "./public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });

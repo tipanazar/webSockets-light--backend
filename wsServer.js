@@ -1,17 +1,17 @@
-const express = require("express");
-const http = require("http");
-const path = require("path");
+// const express = require("express");
+// const http = require("http");
+// const path = require("path");
 const ws = new require("ws");
 
 const app = express();
 let users = [];
 
-app.use(express.static(__dirname)); // ./public
-app.get("/", (req, res) => {
-  res.sendFile(__dirname); // "index.html"
-});
+// app.use(express.static(__dirname)); // ./public
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname); // "index.html"
+// });
 
-const httpServer = http.createServer(app);
+const httpServer = http.createServer();
 // const wsServer = new ws.Server({ port: 5000 });
 const wsServer = new ws.Server({ server: httpServer });
 

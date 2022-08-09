@@ -1,4 +1,4 @@
 # webSockets-light--backend
 Frontend: https://github.com/tipanazar/webSockets-light
 
-You can connect backend to your fronend by this link: ws://websockets-light.herokuapp.com
+You can connect this backend to your frontend using this link: ws://websockets-light.herokuapp.com

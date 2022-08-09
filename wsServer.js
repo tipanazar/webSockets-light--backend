@@ -11,9 +11,11 @@ let users = [];
 //   res.sendFile(__dirname); // "index.html"
 // });
 
-const httpServer = http.createServer();
-// const wsServer = new ws.Server({ port: 5000 });
-const wsServer = new ws.Server({ server: httpServer });
+// const httpServer = http.createServer();
+
+const port = process.env.PORT || 5000;
+const wsServer = new ws.Server(port);
+// const wsServer = new ws.Server({ server: httpServer });
 
 wsServer.on("connection", (newUser) => {
   console.log("Connected");
@@ -39,7 +41,7 @@ wsServer.on("connection", (newUser) => {
   });
 });
 
-const port = process.env.PORT || 5000;
-httpServer.listen(port, () => {
-  console.log("Server started. Port: ", port);
-});
+// const port = process.env.PORT || 5000;
+// httpServer.listen(port, () => {
+//   console.log("Server started. Port: ", port);
+// });

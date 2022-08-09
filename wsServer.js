@@ -39,7 +39,7 @@ wsServer.on("connection", (newUser) => {
   });
 });
 
-const port = proccess.env.PORT || 5000
+const port = process.env.PORT || 5000
 httpServer.listen(port, () => {
   console.log("Server started. Port: ", port);
 });

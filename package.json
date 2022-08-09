@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/tipanazar/webSockets-light--backend#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "ws": "^8.8.1"
   }
 }

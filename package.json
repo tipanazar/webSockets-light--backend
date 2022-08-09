@@ -1,0 +1,21 @@
+{
+  "name": "websockets-light--backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tipanazar/webSockets-light--backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tipanazar/webSockets-light--backend/issues"
+  },
+  "homepage": "https://github.com/tipanazar/webSockets-light--backend#readme"
+}
